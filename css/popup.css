@@ -1,0 +1,619 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 334px;
+  width: 300px;
+  padding: 5px;
+  overflow: hidden;
+}
+
+#input-website {
+  width: fit-content;
+}
+
+#main-view {
+  width: 100%;
+  height: 100%;
+  background-color: coral;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0 26px;
+  position: relative;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 9px;
+  position: relative;
+}
+
+#mode-switcher {
+  border-radius: 12px;
+  border: 1px solid #fff;
+  color: #fff;
+  line-height: 24px;
+  font-size: 14px;
+  position: absolute;
+  cursor: pointer;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+}
+#mode-switcher.disabled {
+  background-color: #48987d;
+  border: none;
+  cursor: default;
+}
+
+#setting-icon {
+  width: 25px;
+  height: 25px;
+  background-image: url(../images/main/settings_btn.png);
+  background-size: contain;
+}
+
+#edit-icon {
+  width: 25px;
+  height: 25px;
+}
+
+#back-icon {
+  width: 25px;
+  height: 25px;
+}
+
+#setting-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 999;
+}
+
+#add-to-blacklist-icon {
+  width: 25px;
+  height: 25px;
+  background-image: url(../images/main/addBlackList_white.png);
+  background-size: contain;
+  transition: transform 0.2s;
+}
+
+.convergeToPoint {
+  transform: scale(0);
+}
+
+.checked {
+  background-image: url(../images/main/check-mark.png) !important;
+}
+
+#top-description {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-style: italic;
+  color: white;
+}
+
+.highlight-top-description {
+  font-style: normal !important;
+  font-weight: bold;
+  animation-name: shaking;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+@keyframes shaking {
+  0% {
+    top: 40px;
+  }
+  8% {
+    top: 35px;
+  }
+  16% {
+    top: 40px;
+  }
+  24% {
+    top: 45px;
+  }
+  32% {
+    top: 40px;
+  }
+  40% {
+    top: 37px;
+  }
+  48% {
+    top: 40px;
+  }
+  56% {
+    top: 43px;
+  }
+  64% {
+    top: 40px;
+  }
+  72% {
+    top: 39px;
+  }
+  80% {
+    top: 40px;
+  }
+  88% {
+    top: 41px;
+  }
+  100% {
+    top: 40px;
+  }
+}
+
+.top-icon {
+  width: 40px;
+  height: 40px;
+  margin: auto 5px;
+  display: inline-block;
+}
+
+#treeball-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#treeball-container:hover .treeball-arrows {
+  opacity: 0.7;
+}
+
+#treeball {
+  width: 120px;
+  height: 120px;
+  background-image: url(../images/main/planting_circle.svg);
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+  position: relative;
+}
+
+.treeball-arrows {
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+#treeball-left-arrow {
+  left: 25px;
+  background-image: url(../images/main/prev_btn.png);
+}
+
+#treeball-right-arrow {
+  right: 25px;
+  background-image: url(../images/main/next_btn.png);
+}
+
+#seed {
+  width: 17px;
+  height: 22px;
+  background-image: url(../images/main/default_seed.png);
+  background-size: contain;
+  display: none;
+}
+
+#plant-board-text {
+  position: absolute;
+  top: 31px;
+  left: 30px;
+  width: 61px;
+  height: 18px;
+  line-height: 16px;
+  font-size: 16px;
+  color: #442a00;
+  font-family: "PingFangTC-Regular", "PingFangHK-Regular", "PingFangSC-Regular",
+    "Helvetica", "Microsoft JhengHei", "Microsoft YaHei", "MS Gothic",
+    "Malgun Gothic", "Arial", "sans-serif";
+  text-align: center;
+  cursor: pointer;
+  display: none;
+}
+
+#plant-board {
+  position: absolute;
+  top: 23px;
+  left: 30px;
+  width: 61px;
+  height: 54px;
+  background-image: url(../images/main/plant_board.png);
+  background-size: contain;
+  cursor: pointer;
+  display: none;
+}
+
+#locker {
+  position: absolute;
+  top: 0;
+  bottom: 12px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 25px;
+  height: 25px;
+  background-image: url(../images/main/locker.png);
+  background-size: contain;
+  cursor: pointer;
+}
+
+.floating_seed {
+  animation-name: floating;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    top: 23px;
+  }
+  50% {
+    top: 33px;
+  }
+  100% {
+    top: 23px;
+  }
+}
+
+.planted {
+  top: 63px !important;
+  transition: top 0.5s ease-in;
+}
+
+#tree {
+  width: 70px;
+  height: 70px;
+  background-size: contain;
+}
+
+.shadowed-tree {
+  -webkit-filter: brightness(40%);
+  filter: brightness(40%);
+}
+
+#share-icons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 75%;
+  height: 50px;
+  align-items: center;
+}
+
+.share-icon {
+  width: 45px;
+  height: 45px;
+  background-size: contain;
+}
+
+#editBtn {
+  background-image: url(../images/main/edit_btn.png);
+}
+
+#twitterBtn {
+  background-image: url(../images/main/twitter_btn.svg);
+}
+
+#fbBtn {
+  background-image: url(../images/main/fb_btn.svg);
+}
+
+#timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#timer-container:hover .timer-arrows {
+  opacity: 0.7;
+}
+
+#timer {
+  font-family: "PingFangTC-Regular", "PingFangHK-Regular", "PingFangSC-Regular",
+    "Helvetica", "Microsoft JhengHei", "Microsoft YaHei", "MS Gothic",
+    "Malgun Gothic", "Arial", "sans-serif";
+  font-size: 50px;
+  color: #fff;
+  line-height: 50px;
+  width: 154px;
+  text-align: center;
+}
+
+.timer-arrows {
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+#timer-left-arrow {
+  background-image: url(../images/main/prev_btn.png);
+}
+
+#timer-right-arrow {
+  background-image: url(../images/main/next_btn.png);
+}
+
+.show-briefly {
+  opacity: 0.7;
+}
+
+#finish-popup {
+  position: absolute;
+  margin: 0 auto;
+  top: 80px;
+  padding: 20px 0;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #444;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 230px;
+  justify-content: space-between;
+}
+
+.finish-popup-shrink {
+  transform: scale(0);
+}
+
+#finish-message-for-guest-container {
+  padding: 0 16px;
+}
+
+#finish-message-for-guest {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+a#finish-message-for-guest-link {
+  color: #444;
+}
+
+#finish-message-for-user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#finish-message-for-user {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#reward-for-user {
+  font-size: 20px;
+  font-weight: bold;
+  color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+#coins-for-user {
+  margin-left: 9px;
+}
+
+#coins-boosted {
+  margin-left: 3px;
+  color: #f2c00d;
+}
+
+.coin-icon-reward {
+  height: 30px;
+  width: 30px;
+}
+
+.coin-icon-guest {
+  height: 16px;
+  width: 16px;
+  align-self: center;
+  margin-left: 6px;
+}
+
+#do-not-show-finish-message-container {
+  margin-top: 12px;
+}
+
+#confirm-btn {
+  margin-top: 20px;
+  border-radius: 5px;
+  width: 90px;
+  height: 32px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #84caab;
+  box-shadow: 0 3px 0 #498068;
+}
+
+#finish-mask,
+#edit-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+#finish-message-for-guest-link {
+  outline: none !important;
+}
+
+.finish-masked,
+.edit-masked {
+  opacity: 0.6 !important;
+}
+
+.tree-cursor {
+  cursor: pointer;
+}
+
+#edit-popup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 60px;
+  padding: 20px 12px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #333;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.edit-popup-shrink {
+  transform: scale(0);
+}
+
+.edit-comment__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+#edit-btn,
+#edit-cancel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 5px;
+  line-height: 36px;
+  width: 105px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#edit-btn {
+  background-color: #8cc914;
+  box-shadow: 0 4px 0 #69960f;
+}
+
+#edit-cancel {
+  background-color: #c9c9c9;
+  box-shadow: 0 4px 0 #969696;
+}
+
+#edit-tag {
+  background-image: url(../images/down-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: 72px;
+  background-size: 12px;
+  padding: 0 24px 0 24px;
+  width: 90px;
+  margin: 0 auto;
+  font-size: 14px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#edit-note {
+  margin-top: 8px;
+  width: 220px;
+  height: 92px;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 8px;
+  outline: none;
+  resize: none;
+  cursor: text;
+  background-color: #f4f4f4;
+  color: #666;
+}
+
+#mode-switcher:hover .mode-hint {
+  transition-delay: 0.5s;
+  visibility: visible;
+  opacity: 1;
+}
+
+.mode-hint {
+  background-color: #2d5a4a;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  position: absolute;
+  padding: 10px;
+  width: 180px;
+  text-align: center;
+  top: 38px;
+  z-index: 1;
+  pointer-events: none;
+  visibility: hidden;
+  transition: 0.3s;
+  opacity: 0;
+}
+.mode-hint::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 5px 8px 5px;
+  border-color: transparent transparent #2d5a4a transparent;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+#targetTabs-container {
+  padding: 25px;
+  margin: 10px;
+  height: 250px;
+  width: 250px;
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.addpage {
+  text-align: center;
+  margin: auto;
+}
+
+.center-div {
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+}

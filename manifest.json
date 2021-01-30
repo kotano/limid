@@ -1,0 +1,38 @@
+{
+	"manifest_version": 2,
+	"name": "Limid",
+	"description": "Softly limit usage of distracting websites",
+	"version": "0.1.0",
+	"permissions": [
+		"storage",
+		"notifications",
+		"activeTab",
+		"tabs"
+	],
+	"options_page": "options.html",
+	"content_scripts": [
+		{
+			"matches": [ "*://*/*" ],
+			"js": [ "js/content.js" ],
+			"css": ["css/content.css"]
+		}
+	],
+	"browser_action": {
+		"default_icon": "images/sandClock.png",
+		"default_popup": "popup.html"
+	},
+	"background": {
+		"scripts": [
+			"js/background.js"
+		],
+		"persistent": true
+	},
+	"web_accessible_resources": [
+		"images/*",
+		"css/*",
+		"content.html"
+	],
+	"icons": {
+		"512": "images/sandClock.png"
+	}
+}

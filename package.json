@@ -1,0 +1,14 @@
+{
+  "name": "limid",
+  "version": "0.1.0",
+  "description": "Chrome extension that allows to soflty limit usage of distracting websites",
+  "main": "background.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "kotano",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.18.0"
+  }
+}
