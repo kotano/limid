@@ -12,35 +12,19 @@
       <h1>Limid</h1>
       <div>
         <div class="addpage">
-          <input type="text" name="" id="input-website" placeholder="" />
+          <input type="text" name="" id="input-website" placeholder="" disabled />
         </div>
         <div class="center-div">
-          <button id="blacklistBtn" type="submit">Add to blacklist</button>
+          <button id="blacklistBtn" class="limid-button" type="submit">Add to blacklist</button>
         </div>
         <!-- <button id="whitelistBtn" type="submit">Add to whitelist</button> -->
       </div>
+      <span class="limid-info">These distracting websites are currently active:</span>
       <div id="targetTabs-container">
-        <ul>
-          <div>
-            <li><span></span>Hello<button>X</button></li>
-          </div>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
-          <li>Hello</li>
+        <ul id="distractors-list">
         </ul>
       </div>
-      <button id="switchButton">SwitchMode</button>
+      <button id="switchButton">Switch</button>
     </div>
   </body>
 </html>

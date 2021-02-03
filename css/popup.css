@@ -617,3 +617,18 @@ a#finish-message-for-guest-link {
   width: fit-content;
   height: fit-content;
 }
+
+.limid-info {
+  margin-top: 10px;
+  font-size: small;
+}
+
+#switchButton {
+  width: 50px;
+}
+
+.closeTab {
+  /* margin-left: auto;
+  margin-right: 0px; */
+  float:right;
+}
