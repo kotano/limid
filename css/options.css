@@ -4,11 +4,13 @@ html {
 }
 
 body {
-  background-color: rgba(255, 255, 255, 0);
+  /* background-color: rgba(255, 255, 255, 0); */
+  background-color: aliceblue;
   font-size: 14px;
-  margin: 0;
+  margin: auto;
+  /* margin: 0; */
   padding: 0;
-  color: #666;
+  color: rgb(63, 60, 60);
   max-width: 755px;
   min-width: 755px;
 }
@@ -1006,4 +1008,24 @@ li:hover .x {
   height: 40px;
   margin-right: 16px;
   cursor: pointer;
+}
+
+label {
+  display: block;
+}
+
+/* body {
+  background-color: yellow;
+  margin: auto;
+} */
+
+.container {
+  background-color: aliceblue;
+  width: 80%;
+  /* margin: 50px auto; */
+}
+
+#savebutton {
+  margin-top: 50px;
+  width: 70px;
 }

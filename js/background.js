@@ -231,6 +231,9 @@ chrome.runtime.onMessage.addListener((request, sender) => {
   if (request.lock === false) {
     unlockAllPages();
     startCountdown();
+  } else if (request.type === "settings") {
+    const { blacklist, inhibitor, maxTime } = request;
+    Object.assign(settings, { blacklist, inhibitor, maxTime });
   }
 });
 

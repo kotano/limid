@@ -18,6 +18,15 @@ function addToBlacklist(host) {
 function populateList() {
   const dList = g("distractors-list");
   chrome.runtime.getBackgroundPage((bgWindow) => {
+    if (bgWindow.activeTargets.length) g("distractionInfo").hidden = false;
+    const display = g("timeDisplay");
+    const zeroPad = (num, places) => String(num).padStart(places, "0");
+    setInterval(() => {
+      const time = bgWindow.settings.time;
+      const hour = zeroPad(Math.floor(time / 60), 2);
+      const minute = zeroPad(Math.floor(time % 60), 2);
+      display.textContent = `${hour}:${minute}`;
+    }, 1000);
     bgWindow.activeTargets.forEach((tabId) => {
       chrome.tabs.get(tabId, (tab) => {
         const host = new URL(tab.url).host;
@@ -32,6 +41,7 @@ function populateList() {
       });
       log(tabId);
     });
+
   });
 }
 

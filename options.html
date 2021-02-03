@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Limid options</title>
+  <script src="js/options.js"></script>
+  <link rel="stylesheet" href="css/options.css">
+</head>
+<body>
+  <h1>Limid options</h1>
+  <div class="container">
+    <form id="options-form" action="#" method="post">
+      <div class="">
+        <label for="blacklist">Enter websites domain names separated by newlines to add them to blocklist.</label>
+        <textarea name="blacklist" id="blacklist" cols="30" rows="10" placeholder="www.youtube.com&#10www.facebook.com"></textarea>
+      </div>
+      <div class="">
+        <label for="inhibitor">Inhibitor value. Specify how many times slower free time will be restored.</label>
+        <input type="range" name="inhibitor" id="inhibitor" min="1" max="10" step="0.5" value="2">
+        <output></output>
+      </div>
+      <div class="">
+        <label for="maxtime">Choose a maximum free time limit in minutes</label>
+        <input type="number" name="maxtime" id="maxtime" min="1" max="120"><span>Minutes</span>
+      </div>
+      <div><button id="savebutton" type="submit">Save</button></div>
+    </form>
+  </div>
+</body>
+</html>
