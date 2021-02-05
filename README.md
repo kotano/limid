@@ -10,14 +10,18 @@ Built using native JavaScript, HTML, CSS and Chrome API.
 
 https://youtu.be/wBL--pr_N_o
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wBL--pr_N_o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 #### Description
 
 Limid notes when you visit sites on the blocklist and takes up your `free time` until you go to another page. When you don't visit distracting pages, your time recovers, but at a slower pace. If you run out of free time, Limid blocks access to distracting pages and asks you to wait until the time is restored.
 This approach is much better psychologically, since access is not blocked until the next day, but only for a short time, and even if you have recovered 5 minutes, you can turn off the blocking and continue browsing, but only for 5 minutes.
 
-#### Features
+The project consists of four modules.
+The first module is a background process. It controls all of the extension logic. It monitors which pages you visit, gives commands to block and unblock, increases and decreases the time counter.
+The second module is an in-page script. It embeds a blocking layer into the page, stops playing content, communicates with the background process.
+The third module is a pop-up window. It provides some contextual commands for the user, allows you to block or unblock pages, displays the amount of free time, allows you to add the current active website to the blocklist.
+The fourth module is settings. It works with a database. Allows you to modify the blocklist, set the inhibitor value, change the maximum free time.
+
+**Features**
 
 - You can easily add additional sites to the list via popup or via the extension settings page.
 
