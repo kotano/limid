@@ -1,11 +1,10 @@
 {
 	"manifest_version": 2,
 	"name": "Limid",
-	"description": "Softly limit usage of distracting websites",
+	"description": "Gently restrict the use of distracting websites.",
 	"version": "0.1.0",
 	"permissions": [
 		"storage",
-		"notifications",
 		"activeTab",
 		"tabs"
 	],
